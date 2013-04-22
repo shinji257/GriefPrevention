@@ -36,6 +36,8 @@ import org.bukkit.entity.Monster;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.ThrownPotion;
 import org.bukkit.entity.Villager;
+import org.bukkit.entity.Snowball;
+import org.bukkit.entity.Egg;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -363,6 +365,22 @@ class EntityEventHandler implements Listener
 			if(potion.getShooter() instanceof Player)
 			{
 				attacker = (Player)potion.getShooter();
+			}
+		}
+		else if(damageSource instanceof Snowball)
+		{
+			Snowball snowball = (Snowball)damageSource;
+			if(snowball.getShooter() instanceof Player)
+			{
+				attacker = (Player)snowball.getShooter();
+			}
+		}
+		else if(damageSource instanceof Egg)
+		{
+			Egg egg = (Egg)damageSource;
+			if(egg.getShooter() instanceof Player)
+			{
+				attacker = (Player)egg.getShooter();
 			}
 		}
 		
